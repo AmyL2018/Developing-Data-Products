@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574661594358.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2231156736",
+    "id" : "411599FF",
+    "lastKnownWriteTime" : 1528647124,
+    "last_content_update" : 1528647124,
+    "path" : "C:/Users/liuyi/Documents/1JH/R_Homework/R_workSpace_6_10_2018.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "52,35",
+        "scrollLine" : "38"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

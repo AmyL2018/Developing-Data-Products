@@ -1,0 +1,101 @@
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+
+library(shiny)
+library(leaflet)
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+   # Application title
+   titlePanel("Old Faithful Geyser Data"),
+
+   # Sidebar with a slider input for number of bins
+   sidebarLayout(
+      sidebarPanel(
+         sliderInput("bins",
+                     "Number of bins:",
+                     min = 1,
+                     max = 50,
+                     value = 30)
+      ),
+
+      # Show a plot of the generated distribution
+      mainPanel(
+         plotOutput("distPlot"),
+         leafletOutput("m")
+         
+      )
+   )
+)
+# 
+# shinyUI <- shinyUI(pageWithSidebar(  
+#    headerPanel("Data science FTW!"),  
+#    sidebarPanel(    
+#       h2('Big text'),    
+#       h3('Sidebar')  
+#    ),  
+#    mainPanel(      
+#       h3('Main Panel text')  
+#    )
+# ))
+
+# shinyUI(pageWithSidebar(  
+#    headerPanel("Example plot"),  
+#    sidebarPanel(    
+#       sliderInput('mu', 'Guess at the mu',value = 70, min = 60, max = 80, step = 0.05,)  ), 
+#    mainPanel(    
+#       plotOutput("myHist")  
+#    )
+# ))
+# 
+# 
+# library(UsingR)
+# data(galton)
+# 
+# shinyServer(  
+#    function(input, output){    
+#       output$myHist <- renderPlot({      
+#          hist(galton$child, xlab='child height', col='lightblue',main='Histogram')      
+#          mu <- input$mu      
+#          lines(c(mu, mu), c(0, 200),col="red",lwd=5)      
+#          mse <- mean((galton$child - mu)^2)      
+#          text(63, 150, paste("mu = ", mu))      
+#          text(63, 140, paste("MSE = ", round(mse, 2)))      
+#       })      }
+
+
+# )
+# 
+# shinyApp(ui = shinyUI, server = shinyServer)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+   output$distPlot <- renderPlot({
+      # generate bins based on input$bins from ui.R
+      x    <- faithful[, 2]
+      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+      # draw the histogram with the specified number of bins
+      hist(x, breaks = bins, col = 'darkgray', border = 'red')
+   })
+   
+   output$m <- renderLeaflet({
+      leaflet() %>%
+      addTiles() %>%  # Add default OpenStreetMap map tiles
+      addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+      
+   })
+ 
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
+

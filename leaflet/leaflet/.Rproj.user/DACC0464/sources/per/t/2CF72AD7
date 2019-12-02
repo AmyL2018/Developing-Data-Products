@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574654075021.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1456518985",
+    "id" : "2CF72AD7",
+    "lastKnownWriteTime" : 1574657819,
+    "last_content_update" : 1574657819899,
+    "path" : "C:/Users/liuyi/Documents/1JH/Data production/Shinny R data production/leaflet/leaflet/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "23,10",
+        "scrollLine" : "12"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
