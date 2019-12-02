@@ -1,25 +1,31 @@
-Untitled
-================
 
-`{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)`
+---
+title: "Data product Leaflet Map"
+author: "Yimin Liu"
+date: "11/24/2019"
+output:  html_document
+---
 
-## GitHub Documents
 
-This is an R Markdown format used for publishing markdown documents to
-GitHub. When you click the **Knit** button all R code chunks are run and
-a markdown file (.md) suitable for publishing to GitHub is generated.
 
-## Including Code
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-You can include R code in the document as follows:
 
-`{r cars} summary(cars)`
+##  Leaflet map webpage
+Create a leaflet map object.
+```{r maps}
+library(leaflet)
+map <- leaflet() %>% addTiles()
+```
 
-## Including Plots
 
-You can also embed plots, for example:
 
-`{r pressure, echo=FALSE} plot(pressure)`
+Add the marker to the map and display the map.
+```{r}
 
-Note that the `echo = FALSE` parameter was added to the code chunk to
-prevent printing of the R code that generated the plot.
+map %>%
+   addTiles() %>%
+    addMarkers(lng=174.768, lat=-36.852, popup="This is my school")
+```
