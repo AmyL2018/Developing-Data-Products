@@ -1,0 +1,47 @@
+---
+title: "R Markdown with Plotly presentation"
+author: "Yimin Liu"
+date: "December 1, 2019"
+output:  slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+## Introduction
+
+This is a web page presentation using R Markdown that features a plot created with Plotly. The webpage contains 
+
+1. The date that the document was created;
+2. An interactive plot created with Plotly. 
+
+## Iris data set plot code
+
+```{r iris code, echo = TRUE, eval=FALSE}
+
+suppressPackageStartupMessages(library(plotly))
+##This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of 
+##the variables sepal length and petal length, respectively, for 50 flowers from each of 3
+##species of iris. The species are Iris setosa, versicolor, and virginica
+##
+plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species, colors = "Set1") %>%
+
+layout(title = "Iris pedal/sepal length measurements in 3 iris species", 
+       xaxis = list(title = "Sepal Length"),yaxis = list(title = "Pedal Length"))
+
+```
+
+## Iris data set plot 
+```{r iris, echo = FALSE, message=FALSE}
+
+suppressPackageStartupMessages(library(plotly))
+##This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and petal length, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica
+##
+plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species, colors = "Set1") %>%
+
+layout(title = "Iris pedal/sepal length measurements in 3 iris species", xaxis = list(title = "Sepal Length"),yaxis = list(title = "Pedal Length"))
+
+```
